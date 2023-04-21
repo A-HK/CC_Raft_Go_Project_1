@@ -1,0 +1,195 @@
+=== RUN   Test2
+22:45:19.740279 [0] listening at [::]:50498
+22:45:20.013754 [1] listening at [::]:50499
+22:45:20.261830 [2] listening at [::]:50500
+22:45:20.531591 [3] listening at [::]:50501
+22:45:20.787271 [4] listening at [::]:50502
+22:45:20.805566 AT NODE 4: Election timer started: 4.299s, with term=0
+22:45:20.805566 AT NODE 0: Election timer started: 5.393s, with term=0
+22:45:20.805566 AT NODE 3: Election timer started: 3.392s, with term=0
+22:45:20.805566 AT NODE 1: Election timer started: 4.329s, with term=0
+22:45:20.805566 AT NODE 2: Election timer started: 5.859s, with term=0
+22:45:24.208392 AT NODE 3: became Candidate with term=1;
+22:45:24.208904 AT NODE 3: Election timer started: 5.314s, with term=1
+22:45:24.208904 AT NODE 3: sending RequestVote to 0: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:272}
+22:45:24.208904 AT NODE 3: sending RequestVote to 4: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:190}
+22:45:24.208904 AT NODE 3: sending RequestVote to 2: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:45}
+22:45:24.208904 AT NODE 3: sending RequestVote to 1: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:100}
+22:45:24.278620 AT NODE 2: Received Vote Request from NODE 3; Args: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:45} [currentTerm=0, votedFor=-1, log index/term=(-1, -1)]
+22:45:24.278620 AT NODE 2: became Follower with term=1; log=[]
+22:45:24.278620 AT NODE 2: Sending Request Vote Reply: &{Term:1 VoteGranted:true}
+22:45:24.278620 AT NODE 2: Election timer started: 4.249s, with term=1
+22:45:24.278620 AT NODE 3: received RequestVoteReply from 2: {Term:1 VoteGranted:true}
+22:45:24.280430 AT NODE 3:  2 has voted
+22:45:24.280430 AT NODE 3: Became Leader by receiving majority of votes: 2
+22:45:24.280430 AT NODE 3: became Leader; term=1, nextIndex=map[0:0 1:0 2:0 4:0], matchIndex=map[0:-1 1:-1 2:-1 4:-1]; log=[]
+22:45:24.334998 AT NODE 1: Received Vote Request from NODE 3; Args: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:100} [currentTerm=0, votedFor=-1, log index/term=(-1, -1)]
+22:45:24.334998 AT NODE 1: became Follower with term=1; log=[]
+22:45:24.334998 AT NODE 1: Sending Request Vote Reply: &{Term:1 VoteGranted:true}
+22:45:24.335544 AT NODE 1: Election timer started: 3.186s, with term=1
+22:45:24.335854 AT NODE 3: received RequestVoteReply from 1: {Term:1 VoteGranted:true}
+22:45:24.335854 AT NODE 3: State changed from Candidate to Leader
+22:45:24.423701 AT NODE 4: Received Vote Request from NODE 3; Args: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:190} [currentTerm=0, votedFor=-1, log index/term=(-1, -1)]
+22:45:24.423701 AT NODE 4: became Follower with term=1; log=[]
+22:45:24.423701 AT NODE 4: Sending Request Vote Reply: &{Term:1 VoteGranted:true}
+22:45:24.423701 AT NODE 4: Election timer started: 3.694s, with term=1
+22:45:24.423701 AT NODE 3: received RequestVoteReply from 4: {Term:1 VoteGranted:true}
+22:45:24.423701 AT NODE 3: State changed from Candidate to Leader
+22:45:24.429449 AT NODE 0: became Follower with term=1; log=[]
+22:45:24.429449 AT NODE 0: Election timer started: 5.268s, with term=1
+22:45:24.510650 AT NODE 0: Received Vote Request from NODE 3; Args: {Term:1 CandidateId:3 LastLogIndex:-1 LastLogTerm:-1 Latency:272} [currentTerm=1, votedFor=-1, log index/term=(-1, -1)]
+22:45:24.510650 AT NODE 0: Sending Request Vote Reply: &{Term:1 VoteGranted:true}
+22:45:24.510650 AT NODE 3: received RequestVoteReply from 0: {Term:1 VoteGranted:true}
+22:45:24.510650 AT NODE 3: State changed from Candidate to Leader
+22:45:24.589661 AT NODE 3: ReceiveClientCommand received by Leader: Set X = 5
+22:45:24.589661 AT NODE 3: Log=[{Set X = 5 1}]
+22:45:24.589661 AT NODE 3: ReceiveClientCommand received by Leader: Set X = 1000
+22:45:24.589661 AT NODE 3: Log=[{Set X = 5 1} {Set X = 1000 1}]
+22:45:25.288068 AT NODE 3: sending AppendEntries to 0: currentPeer_nextIndex=0, args={Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:315}
+22:45:25.288068 AT NODE 3: sending AppendEntries to 1: currentPeer_nextIndex=0, args={Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:306}
+22:45:25.288068 AT NODE 3: sending AppendEntries to 2: currentPeer_nextIndex=0, args={Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:360}
+22:45:25.288068 AT NODE 3: sending AppendEntries to 4: currentPeer_nextIndex=0, args={Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:25}
+22:45:25.343675 AT NODE 4: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:25}
+22:45:25.343675 AT NODE 4: Log is now: [{Set X = 5 1} {Set X = 1000 1}]
+22:45:25.343675 AT NODE 4: Sending AppendEntries reply: {Term:1 Success:true}
+22:45:25.343675 AT NODE 3: AppendEntries reply from NODE 4 success: nextIndex := map[0:0 1:0 2:0 4:2], matchIndex := map[0:-1 1:-1 2:-1 4:1]
+22:45:25.620567 AT NODE 1: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:306}
+22:45:25.620567 AT NODE 1: Log is now: [{Set X = 5 1} {Set X = 1000 1}]
+22:45:25.620567 AT NODE 1: Sending AppendEntries reply: {Term:1 Success:true}
+22:45:25.620567 AT NODE 3: AppendEntries reply from NODE 1 success: nextIndex := map[0:0 1:2 2:0 4:2], matchIndex := map[0:-1 1:1 2:-1 4:1]
+22:45:25.620567 AT NODE 3: leader sets commitIndex := 1
+22:45:25.636349 AT NODE 0: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:315}
+22:45:25.636349 AT NODE 0: Log is now: [{Set X = 5 1} {Set X = 1000 1}]
+22:45:25.636349 AT NODE 0: Sending AppendEntries reply: {Term:1 Success:true}
+22:45:25.637020 AT NODE 3: AppendEntries reply from NODE 0 success: nextIndex := map[0:2 1:2 2:0 4:2], matchIndex := map[0:1 1:1 2:-1 4:1]
+22:45:25.668189 AT NODE 2: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:-1 PrevLogTerm:-1 Entries:[{Command:Set X = 5 Term:1} {Command:Set X = 1000 Term:1}] LeaderCommit:-1 Latency:360}
+22:45:25.668189 AT NODE 2: Log is now: [{Set X = 5 1} {Set X = 1000 1}]
+22:45:25.668189 AT NODE 2: Sending AppendEntries reply: {Term:1 Success:true}
+22:45:25.668763 AT NODE 3: AppendEntries reply from NODE 2 success: nextIndex := map[0:2 1:2 2:2 4:2], matchIndex := map[0:1 1:1 2:1 4:1]
+22:45:27.599100 [ACTION] Disconnecting 3
+22:45:30.942624 AT NODE 1: became Candidate with term=2;
+22:45:30.942624 AT NODE 1: Election timer started: 4.017s, with term=2
+22:45:30.942624 AT NODE 1: sending RequestVote to 0: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:288}
+22:45:30.942624 AT NODE 1: sending RequestVote to 2: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:278}
+22:45:30.942624 AT NODE 1: sending RequestVote to 3: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:349}
+22:45:30.942624 AT NODE 1: sending RequestVote to 4: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:315}
+22:45:31.232604 AT NODE 4: became Candidate with term=2;
+22:45:31.233108 AT NODE 4: Election timer started: 3.106s, with term=2
+22:45:31.233108 AT NODE 4: sending RequestVote to 1: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:133}
+22:45:31.233108 AT NODE 4: sending RequestVote to 3: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:34}
+22:45:31.233108 AT NODE 4: sending RequestVote to 2: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:319}
+22:45:31.233108 AT NODE 4: sending RequestVote to 0: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:417}
+22:45:31.242603 AT NODE 2: Received Vote Request from NODE 1; Args: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:278} [currentTerm=1, votedFor=3, log index/term=(1, 1)]
+22:45:31.242603 AT NODE 2: became Follower with term=2; log=[{Set X = 5 1} {Set X = 1000 1}]
+22:45:31.243159 AT NODE 2: Sending Request Vote Reply: &{Term:2 VoteGranted:true}
+22:45:31.243159 AT NODE 2: Election timer started: 3.504s, with term=2
+22:45:31.243159 AT NODE 1: received RequestVoteReply from 2: {Term:2 VoteGranted:true}
+22:45:31.244187 AT NODE 1:  2 has voted
+22:45:31.244187 AT NODE 1: Became Leader by receiving majority of votes: 2
+22:45:31.244187 AT NODE 1: became Leader; term=2, nextIndex=map[0:2 2:2 3:2 4:2], matchIndex=map[0:-1 2:-1 3:-1 4:-1]; log=[{Set X = 5 1} {Set X = 1000 1}]
+22:45:31.251523 AT NODE 0: Received Vote Request from NODE 1; Args: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:288} [currentTerm=1, votedFor=3, log index/term=(1, 1)]
+22:45:31.251523 AT NODE 0: became Follower with term=2; log=[{Set X = 5 1} {Set X = 1000 1}]
+22:45:31.251523 AT NODE 0: Sending Request Vote Reply: &{Term:2 VoteGranted:true}
+22:45:31.251523 AT NODE 0: Election timer started: 5.075s, with term=2
+22:45:31.251523 AT NODE 1: received RequestVoteReply from 0: {Term:2 VoteGranted:true}
+22:45:31.251523 AT NODE 1: State changed from Candidate to Leader
+22:45:31.281316 AT NODE 4: Received Vote Request from NODE 1; Args: {Term:2 CandidateId:1 LastLogIndex:1 LastLogTerm:1 Latency:315} [currentTerm=2, votedFor=4, log index/term=(1, 1)]
+22:45:31.281316 AT NODE 4: Sending Request Vote Reply: &{Term:2 VoteGranted:false}
+22:45:31.281316 AT NODE 1: received RequestVoteReply from 4: {Term:2 VoteGranted:false}
+22:45:31.281316 AT NODE 1: State changed from Candidate to Leader
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set X = X+10
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2}]
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set X = X+1
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2}]
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set Y = 5
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2}]
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set Y = X+Y
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2}]
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set Y = Y+3
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2}]
+22:45:31.379002 AT NODE 1: ReceiveClientCommand received by Leader: Set Z = -1
+22:45:31.379002 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2}]
+22:45:31.395149 AT NODE 1: Received Vote Request from NODE 4; Args: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:133} [currentTerm=2, votedFor=1, log index/term=(7, 2)]
+22:45:31.395149 AT NODE 1: Sending Request Vote Reply: &{Term:2 VoteGranted:false}
+22:45:31.395149 AT NODE 4: received RequestVoteReply from 1: {Term:2 VoteGranted:false}
+22:45:31.587478 AT NODE 2: Received Vote Request from NODE 4; Args: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:319} [currentTerm=2, votedFor=1, log index/term=(1, 1)]
+22:45:31.587478 AT NODE 2: Sending Request Vote Reply: &{Term:2 VoteGranted:false}
+22:45:31.587478 AT NODE 4: received RequestVoteReply from 2: {Term:2 VoteGranted:false}
+22:45:31.682759 AT NODE 0: Received Vote Request from NODE 4; Args: {Term:2 CandidateId:4 LastLogIndex:1 LastLogTerm:1 Latency:417} [currentTerm=2, votedFor=1, log index/term=(1, 1)]
+22:45:31.682759 AT NODE 0: Sending Request Vote Reply: &{Term:2 VoteGranted:false}
+22:45:31.682759 AT NODE 4: received RequestVoteReply from 0: {Term:2 VoteGranted:false}
+22:45:31.730410 AT NODE 4: became Follower with term=2; log=[{Set X = 5 1} {Set X = 1000 1}]
+22:45:31.730410 AT NODE 4: Election timer started: 5.405s, with term=2
+22:45:32.252600 AT NODE 1: sending AppendEntries to 0: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:330}
+22:45:32.252600 AT NODE 1: sending AppendEntries to 2: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:362}
+22:45:32.252600 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:307}
+22:45:32.252600 AT NODE 1: sending AppendEntries to 4: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:53}
+22:45:32.334804 AT NODE 4: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:53}
+22:45:32.334804 AT NODE 4: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2}]
+22:45:32.334804 AT NODE 4: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:32.334804 AT NODE 1: AppendEntries reply from NODE 4 success: nextIndex := map[0:2 2:2 3:2 4:8], matchIndex := map[0:1 2:1 3:-1 4:7]
+22:45:32.606304 AT NODE 0: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:330}
+22:45:32.606304 AT NODE 0: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2}]
+22:45:32.606304 AT NODE 0: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:32.606304 AT NODE 1: AppendEntries reply from NODE 0 success: nextIndex := map[0:8 2:2 3:2 4:8], matchIndex := map[0:7 2:1 3:-1 4:7]
+22:45:32.606304 AT NODE 1: leader sets commitIndex := 7
+22:45:32.636694 AT NODE 2: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:1 Latency:362}
+22:45:32.636694 AT NODE 2: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2}]
+22:45:32.636694 AT NODE 2: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:32.636694 AT NODE 1: AppendEntries reply from NODE 2 success: nextIndex := map[0:8 2:8 3:2 4:8], matchIndex := map[0:7 2:7 3:-1 4:7]
+22:45:33.246162 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:7 Latency:10}
+22:45:34.251370 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2}] LeaderCommit:7 Latency:132}
+22:45:34.391661 AT NODE 1: ReceiveClientCommand received by Leader: Set Z = 3
+22:45:34.391791 AT NODE 1: Log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2} {Set Z = 3 2}]
+22:45:35.246774 AT NODE 1: sending AppendEntries to 0: currentPeer_nextIndex=8, args={Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:308}
+22:45:35.246774 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2} {Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:132}
+22:45:35.246774 AT NODE 1: sending AppendEntries to 4: currentPeer_nextIndex=8, args={Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:271}
+22:45:35.246774 AT NODE 1: sending AppendEntries to 2: currentPeer_nextIndex=8, args={Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:439}
+22:45:35.547711 AT NODE 4: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:271}
+22:45:35.547711 AT NODE 4: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2} {Set Z = 3 2}]
+22:45:35.547711 AT NODE 4: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:35.547711 AT NODE 1: AppendEntries reply from NODE 4 success: nextIndex := map[0:8 2:8 3:2 4:9], matchIndex := map[0:7 2:7 3:-1 4:8]
+22:45:35.579576 AT NODE 0: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:308}
+22:45:35.579576 AT NODE 0: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2} {Set Z = 3 2}]
+22:45:35.579576 AT NODE 0: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:35.580226 AT NODE 1: AppendEntries reply from NODE 0 success: nextIndex := map[0:9 2:8 3:2 4:9], matchIndex := map[0:8 2:7 3:-1 4:8]
+22:45:35.580226 AT NODE 1: leader sets commitIndex := 8
+22:45:35.714730 AT NODE 2: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:7 PrevLogTerm:2 Entries:[{Command:Set Z = 3 Term:2}] LeaderCommit:7 Latency:439}
+22:45:35.714730 AT NODE 2: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2} {Set Z = 3 2}]
+22:45:35.714730 AT NODE 2: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:35.714730 AT NODE 1: AppendEntries reply from NODE 2 success: nextIndex := map[0:9 2:9 3:2 4:9], matchIndex := map[0:8 2:8 3:-1 4:8]
+22:45:36.260036 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2} {Command:Set Z = 3 Term:2}] LeaderCommit:8 Latency:139}
+22:45:37.258326 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2} {Command:Set Z = 3 Term:2}] LeaderCommit:8 Latency:152}
+22:45:37.400897 [ACTION] Reconnecting 3
+22:45:38.253342 AT NODE 1: sending AppendEntries to 3: currentPeer_nextIndex=2, args={Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2} {Command:Set Z = 3 Term:2}] LeaderCommit:8 Latency:133}
+22:45:38.285652 AT NODE 3: sending AppendEntries to 0: currentPeer_nextIndex=2, args={Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:36}
+22:45:38.285652 AT NODE 3: sending AppendEntries to 1: currentPeer_nextIndex=2, args={Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:62}
+22:45:38.285652 AT NODE 3: sending AppendEntries to 2: currentPeer_nextIndex=2, args={Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:11}
+22:45:38.285652 AT NODE 3: sending AppendEntries to 4: currentPeer_nextIndex=2, args={Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:237}
+22:45:38.320207 AT NODE 2: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:11}
+22:45:38.320207 AT NODE 2: Sending AppendEntries reply: {Term:2 Success:false}
+22:45:38.321276 AT NODE 3: became Follower with term=2; log=[{Set X = 5 1} {Set X = 1000 1} {Set X = X-5 1}]
+22:45:38.321276 AT NODE 3: Election timer started: 5.692s, with term=2
+22:45:38.356676 AT NODE 0: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:36}
+22:45:38.357000 AT NODE 0: Sending AppendEntries reply: {Term:2 Success:false}
+22:45:38.368637 AT NODE 1: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:62}
+22:45:38.368637 AT NODE 1: Sending AppendEntries reply: {Term:2 Success:false}
+22:45:38.410530 AT NODE 3: Received AppendEntries from NODE 1; args: {Term:2 LeaderId:1 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X+10 Term:2} {Command:Set X = X+1 Term:2} {Command:Set Y = 5 Term:2} {Command:Set Y = X+Y Term:2} {Command:Set Y = Y+3 Term:2} {Command:Set Z = -1 Term:2} {Command:Set Z = 3 Term:2}] LeaderCommit:8 Latency:133}
+22:45:38.410530 AT NODE 3: Log is now: [{Set X = 5 1} {Set X = 1000 1} {Set X = X+10 2} {Set X = X+1 2} {Set Y = 5 2} {Set Y = X+Y 2} {Set Y = Y+3 2} {Set Z = -1 2} {Set Z = 3 2}]
+22:45:38.411051 AT NODE 3: Sending AppendEntries reply: {Term:2 Success:true}
+22:45:38.411717 AT NODE 1: AppendEntries reply from NODE 3 success: nextIndex := map[0:9 2:9 3:9 4:9], matchIndex := map[0:8 2:8 3:8 4:8]
+22:45:38.550256 AT NODE 4: Received AppendEntries from NODE 3; args: {Term:1 LeaderId:3 PrevLogIndex:1 PrevLogTerm:1 Entries:[{Command:Set X = X-5 Term:1}] LeaderCommit:1 Latency:237}
+22:45:38.550256 AT NODE 4: Sending AppendEntries reply: {Term:2 Success:false}
+22:45:52.422389 AT NODE 0: KILLED
+22:45:52.422893 AT NODE 0: applyCommitedLogEntries done
+22:45:52.436010 AT NODE 1: KILLED
+22:45:52.436010 AT NODE 1: applyCommitedLogEntries done
+22:45:52.436010 AT NODE 2: KILLED
+22:45:52.436010 AT NODE 2: applyCommitedLogEntries done
+22:45:52.437202 AT NODE 3: KILLED
+22:45:52.437202 AT NODE 3: applyCommitedLogEntries done
+22:45:52.437202 AT NODE 4: KILLED
+22:45:52.437202 AT NODE 4: applyCommitedLogEntries done
+--- PASS: Test2 (32.93s)
+PASS
+ok  	RaftLogReplication	34.446s
