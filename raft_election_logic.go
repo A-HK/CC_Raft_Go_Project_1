@@ -117,7 +117,6 @@ func (this *RaftNode) startElection() {
 			}
 		}(peerId)
 	}
-
 	// Run another election timer, in case this election is not successful.
 	go this.startElectionTimer()
 }
@@ -128,7 +127,6 @@ func (this *RaftNode) becomeFollower(term int) {
 	this.votedFor = -1
 	this.state = "Follower"
 	this.currentTerm = term
-	this.write_log("Term: %d has became Follower having log=%v", term, this.log)
 	this.lastElectionTimerStartedTime = time.Now()
 	go this.startElectionTimer()
 }

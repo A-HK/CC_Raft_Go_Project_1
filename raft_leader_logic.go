@@ -86,9 +86,6 @@ func (this *RaftNode) broadcastHeartbeats() {
 
 			var reply AppendEntriesReply
 
-			// Don't worry about this; this is how the RPC itself is sent.
-			// Just presume that the AppendEntries went to this follower id,
-			// And you now need to handle the reply.
 			if err := this.server.SendRPCCallTo(peerId, "RaftNode.AppendEntries", args, &reply); err == nil {
 				this.mu.Lock()
 				defer this.mu.Unlock()
@@ -101,36 +98,27 @@ func (this *RaftNode) broadcastHeartbeats() {
 				if this.state == "Leader" && termWhenHeartbeatSent == reply.Term {
 					if reply.Success {
 
-						// There's changes you need to make here.
-						// this.nextIndex for the received PEER (this.nextIndex[peerId]) needs to be updated.
-						// So does this.matchIndex[peerId].
-						// IMPLEMENT THE UPDATE LOGIC FOR THIS.
-						//-------------------------------------------------------------------------------------------/
-						// TODO
-						//-------------------------------------------------------------------------------------------/
+						this.nextIndex[peerId] = currentPeer_nextIndex + len(entries)
+						this.matchIndex[peerId] = this.nextIndex[peerId] - 1
 
 						if (aeType == "Heartbeat" && LogHeartbeatMessages) || aeType == "AppendEntries" {
 							this.write_log("%s reply from NODE %d success: nextIndex := %v, matchIndex := %v", aeType, peerId, this.nextIndex, this.matchIndex)
 						}
 						oldCommitIndex := this.commitIndex
 
-						// AppendEntries success on majority, now commit on leader (IF NOT HEARTBEAT)
-
-						// You must update commitIndex in a specific way somewhere in this loop;
-						// Figure out how and where; HINT: look for a majority of matchCounts.
-
+						// looking for a majority of matchCounts.
 						//-------------------------------------------------------------------------------------------/
 						for i := this.commitIndex + 1; i < len(this.log); i++ {
 							if this.log[i].Term == this.currentTerm {
 								matchCount := 1 // Leader itself
 
 								for _, peerId := range this.peersIds {
-									if { // TODO  // When should you update matchCount?
+									if this.matchIndex[peerId] >= i {
 										matchCount++
 									}
 								}
 
-								if { // TODO  // When should you update commitIndex to i?
+								if matchCount > len(this.peersIds)/2 {
 									this.commitIndex = i
 								}
 							}
@@ -145,14 +133,7 @@ func (this *RaftNode) broadcastHeartbeats() {
 						}
 
 					} else {
-
-						// There's changes you need to make here.
-						// this.nextIndex for the received PEER (this.nextIndex[peerId]) needs to be updated.
-
-						//-------------------------------------------------------------------------------------------/
-						// TODO
-						//-------------------------------------------------------------------------------------------/
-
+						this.nextIndex[peerId] = this.nextIndex[peerId] - 1
 						if (aeType == "Heartbeat" && LogHeartbeatMessages) || aeType == "AppendEntries" {
 							this.write_log("%s reply from NODE %d was failure; Hence, decrementing its nextIndex", aeType, peerId)
 						}
