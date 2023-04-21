@@ -105,7 +105,6 @@ func (this *RaftNode) broadcastHeartbeats() {
 							this.write_log("%s reply from NODE %d success: nextIndex := %v, matchIndex := %v", aeType, peerId, this.nextIndex, this.matchIndex)
 						}
 						oldCommitIndex := this.commitIndex
-
 						// looking for a majority of matchCounts.
 						//-------------------------------------------------------------------------------------------/
 						for i := this.commitIndex + 1; i < len(this.log); i++ {
