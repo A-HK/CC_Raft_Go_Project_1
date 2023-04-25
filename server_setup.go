@@ -159,4 +159,8 @@ func (this *Server) RequestVote(args RequestVoteArgs, reply *RequestVoteReply) e
 func (this *Server) AppendEntries(args AppendEntriesArgs, reply *AppendEntriesReply) error {
 	sleepMs(this.minRPCLatency + args.Latency) // Add Latency
 	return this.raftLogic.HandleAppendEntries(args, reply)
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f50117d5241d757c5341d3af2d051b6fe6262e04
