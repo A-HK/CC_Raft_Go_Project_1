@@ -2,8 +2,7 @@ CLOUD COMPUTING - UE20CS351
 
 # Project: Implementing Raft Logic in Go
 
-<<<<<<< HEAD
-=======
+
 Name: Anindita H.K <br />
 SRN:  PES1UG20CS054 
 
@@ -14,7 +13,6 @@ SRN:  PES1UG20CS054
 3. Anindita H.K    (PES1UG20CS054)
 
 
->>>>>>> f50117d5241d757c5341d3af2d051b6fe6262e04
 ## **In this project, you will:**
 
 1. Learn the basics of GoLang.
@@ -91,11 +89,3 @@ You could also instead tail -f the files with tmux, like you did for Experiment 
 
 For evaluation, you will need to walk through the output you got from the Tests 1 and 2 and explain why it's expected behaviour. You will also need to then execute test-cases given to you later and do the same. **(Test 3 given to you will fail by default; it's your job to explain why and how to fix it.) (refer to the last paragraph of 'how you should start')**
 
-
-## **For queries, contact:**
-
-<<<<<<< HEAD
-**RR Campus:** [**tacloudcomputing@gmail.com**](mailto:tacloudcomputing@gmail.com)
-=======
-**RR Campus:** [**tacloudcomputing@gmail.com**](mailto:tacloudcomputing@gmail.com)
->>>>>>> f50117d5241d757c5341d3af2d051b6fe6262e04
